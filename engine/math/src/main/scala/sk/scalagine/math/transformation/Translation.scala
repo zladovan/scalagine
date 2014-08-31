@@ -15,9 +15,9 @@ object Translation {
   def z(amount: Float) = translation(0, 0, amount)
 
   private def translation(x: Float, y: Float, z: Float): Matrix4x4 = Matrix4x4(
-    0,      0,      0,      x,
-    0,      0,      0,      y,
-    0,      0,      0,      z,
+    1,      0,      0,      x,
+    0,      1,      0,      y,
+    0,      0,      1,      z,
     0,      0,      0,      1
   )
 }

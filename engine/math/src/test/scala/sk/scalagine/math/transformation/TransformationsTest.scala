@@ -115,9 +115,9 @@ class TransformationsTest extends WordSpec with Matchers with PlusMinusMatchers 
     }
 
     "provide translation matrix" in {
-      Translation(1, 2, 3) should equal(Matrix4x4(  0,  0,  0,  1,
-                                                    0,  0,  0,  2,
-                                                    0,  0,  0,  3,
+      Translation(1, 2, 3) should equal(Matrix4x4(  1,  0,  0,  1,
+                                                    0,  1,  0,  2,
+                                                    0,  0,  1,  3,
                                                     0,  0,  0,  1))
     }
 
