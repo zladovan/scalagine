@@ -13,6 +13,8 @@
         <module>math</module>
         <module>opengl</module>
         <module>parent</module>
+        <module>parent-engine</module>
+        <module>resource</module>
     </modules>
 
 </project>

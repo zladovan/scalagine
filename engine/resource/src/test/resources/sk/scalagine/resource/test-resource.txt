@@ -1,0 +1,10 @@
+This is the test text resource.
+It contains multiple lines.
+It contains 10 lines.
+It contains some non-ASCII characters ľščťžýáíé.
+It contains 3 empty lines below this line.
+
+
+
+	It contains tab at start of this line.
+Bye.
