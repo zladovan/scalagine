@@ -9,18 +9,20 @@ import sk.scalagine.math.{Matrix4x4, Vector3}
  * Time: 12:43
  */
 object LookAt {
+
   def apply(eye: Vector3, target: Vector3, up: Vector3): Matrix4x4 = lookAt(eye, target, up)
 
   private def lookAt(eye: Vector3, target: Vector3, up: Vector3): Matrix4x4 = {
-    val z: Vector3 = (target - eye).normalize
-    val x: Vector3 = (z cross up).normalize
-    val y: Vector3 = x cross z
-    val minusEye: Vector3 = eye * -1
-    val t: Vector3 = Vector3(x dot minusEye, y dot minusEye, (z * -1) dot minusEye)
+    val z = (target - eye).normalize
+    val x = (z cross up).normalize
+    val y = x cross z
+    val minusEye = eye * -1
+    val t = Vector3(x dot minusEye, y dot minusEye, (z * -1) dot minusEye)
 
-    Matrix4x4(   x.x,  x.y,  x.z,  t.x,
-                 y.x,  y.y,  y.z,  t.y,
-                -z.x, -z.y, -z.z,  t.z,
-                 0,    0,    0,    1)
+    Matrix4x4(
+       x.x,    x.y,    x.z,    t.x,
+       y.x,    y.y,    y.z,    t.y,
+      -z.x,   -z.y,   -z.z,    t.z,
+       0,      0,      0,      1)
   }
 }

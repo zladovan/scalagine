@@ -9,14 +9,15 @@ import sk.scalagine.math.Matrix4x4
  * Time: 12:47
  */
 object Perspective {
-  def apply(fieldOfViewAngleYInDegrees: Float, aspectRatioX: Float, zNearFar: (Float, Float)): Matrix4x4
-  = perspective(fieldOfViewAngleYInDegrees, aspectRatioX, zNearFar)
+
+  def apply(fieldOfViewAngleYInDegrees: Float, aspectRatioX: Float, zNearFar: (Float, Float)): Matrix4x4 =
+    perspective(fieldOfViewAngleYInDegrees, aspectRatioX, zNearFar)
 
   def perspective(fieldOfViewAngleYInDegrees: Float, aspectRatioX: Float, zNearFar: (Float, Float)): Matrix4x4 = {
-    val top: Float = (Math.tan(fieldOfViewAngleYInDegrees * Math.PI / 360.0f) * zNearFar._1).asInstanceOf[Float]
-    val bottom: Float = -1.0f * top
-    val left: Float = aspectRatioX * bottom
-    val right: Float = aspectRatioX * top
+    val top = (Math.tan(fieldOfViewAngleYInDegrees * Math.PI / 360.0f) * zNearFar._1).asInstanceOf[Float]
+    val bottom = -1.0f * top
+    val left = aspectRatioX * bottom
+    val right = aspectRatioX * top
 
     Frustum((left, right), (bottom, top), zNearFar)
   }

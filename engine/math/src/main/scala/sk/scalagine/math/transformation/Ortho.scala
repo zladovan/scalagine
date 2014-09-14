@@ -9,10 +9,11 @@ import sk.scalagine.math.Matrix4x4
  * Time: 13:23
  */
 object Ortho {
+
   def apply(leftRight: (Float, Float), bottomTop: (Float, Float), zNearFar: (Float, Float)): Matrix4x4 = {
-    val left:   Float = leftRight._1;   val right:  Float = leftRight._2
-    val bottom: Float = bottomTop._1;   val top:    Float = bottomTop._2
-    val zNear:  Float = zNearFar._1;    val zFar:   Float = zNearFar._2
+    val left = leftRight._1;    val right = leftRight._2
+    val bottom = bottomTop._1;  val top = bottomTop._2
+    val zNear = zNearFar._1;    val zFar = zNearFar._2
 
     require(zNear > 0 && zFar >= 0, "zNear and zFar must be positive, and zNear > 0")
     require(left != right && bottom != top, "top,bottom and left,right must not be equal")
@@ -21,7 +22,6 @@ object Ortho {
       2.0f / (right - left),                   0.0f,                   0.0f,  (left + right) / (left - right),
                        0.0f,  2.0f / (top - bottom),                   0.0f,  (bottom + top) / (bottom - top),
                        0.0f,                   0.0f,  2.0f / (zNear - zFar),  (zNear + zFar) / (zFar - zNear),
-                       0.0f,                   0.0f,                   0.0f,                             1.0f
-    )
+                       0.0f,                   0.0f,                   0.0f,                             1.0f)
   }
 }

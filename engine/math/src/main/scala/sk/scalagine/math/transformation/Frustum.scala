@@ -9,18 +9,19 @@ import sk.scalagine.math.Matrix4x4
  * Time: 12:46
  */
 object Frustum {
+
   def apply(leftRight: (Float, Float), bottomTop: (Float, Float), zNearFar: (Float, Float)): Matrix4x4
     = frustum(leftRight, bottomTop, zNearFar)
 
   private def frustum(leftRight: (Float, Float), bottomTop: (Float, Float), zNearFar: (Float, Float)): Matrix4x4  = {
-    val left:   Float = leftRight._1;   val right:  Float = leftRight._2
-    val bottom: Float = bottomTop._1;   val top:    Float = bottomTop._2
-    val zNear:  Float = zNearFar._1;    val zFar:   Float = zNearFar._2
+    val left = leftRight._1;    val right = leftRight._2
+    val bottom = bottomTop._1;  val top = bottomTop._2
+    val zNear = zNearFar._1;    val zFar = zNearFar._2
 
     require(zNear > 0 && zFar >= 0, "zNear and zFar must be positive, and zNear > 0")
     require(left != right && bottom != top, "top,bottom and left,right must not be equal")
 
-    val zNear2: Float = 2.0f * zNear
+    val zNear2 = 2.0f * zNear
     val dx = right - left
     val dy = top - bottom
     val dz = zFar - zNear

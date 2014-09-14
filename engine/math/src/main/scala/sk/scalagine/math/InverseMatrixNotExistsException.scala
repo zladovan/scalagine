@@ -6,4 +6,5 @@ package sk.scalagine.math
  * Date: 25.5.2014
  * Time: 12:04
  */
-class InverseMatrixNotExistsException(matrix: MatrixNxN[_]) extends RuntimeException("Non invertible matrix: " + matrix)
+class InverseMatrixNotExistsException(matrix: MatrixNxN[_])
+  extends RuntimeException("Non invertible matrix: " + matrix)
